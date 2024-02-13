@@ -1,0 +1,109 @@
+---
+title: "Programming in R Assignment"
+author: "Sherine"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+#Install the ggextra library
+install.packages("ggExtra",repos = "http://cran.us.r-project.org")
+#Load the tidyverse and ggextra libraries
+library(tidyverse)
+library("ggExtra")
+```
+
+## Including Plots
+
+Recreate the scatterplot of the lab 1 exercise of class 1:
+
+```{r scatterplot, message=FALSE}
+ggplot(data = mpg,
+       mapping = aes(x = cty, y = hwy, color = as.factor(cyl))) +
+  geom_jitter(alpha = 0.4) +
+  geom_smooth(color = "brown",
+              se = FALSE,
+              linewidth = 0.5) +
+  labs(
+    x = "City MPG",
+    y = "Highway MPG",
+    title = "Highway MPG vs. City MPG",
+    color = "N. of cylinders"
+  )
+
+```
+
+Move the position of the legend to the bottom of the plot
+
+```{r scatterplot2, message=FALSE}
+ggplot(data = mpg,
+       mapping = aes(x = cty, y = hwy, color = as.factor(cyl))) +
+  geom_jitter(alpha = 0.4) +
+  geom_smooth(color = "brown",
+              se = FALSE,
+              linewidth = 0.5) +
+  labs(
+    x = "City MPG",
+    y = "Highway MPG",
+    title = "Highway MPG vs. City MPG",
+    color = "N. of cylinders"
+  )+ theme(legend.position="bottom")
+```
+
+Use the ggMarginal function from the ggExtra library to add marginal histograms for both the x and y axis of your scatterplot
+
+
+```{r scatterplot3, message=FALSE}
+p <- ggplot(data = mpg,
+       mapping = aes(x = cty, y = hwy, color = as.factor(cyl))) +
+  geom_jitter(alpha = 0.4) +
+  geom_smooth(color = "brown",
+              se = FALSE,
+              linewidth = 0.5) +
+  labs(
+    x = "City MPG",
+    y = "Highway MPG",
+    title = "Highway MPG vs. City MPG",
+    color = "N. of cylinders"
+  )+ theme(legend.position="bottom")
+ggMarginal(p,type="histogram")
+```
+
+Configure both marginal histograms to have 16 bins and to be lightblue in color
+```{r scatterplot4, message=FALSE}
+p <- ggplot(data = mpg,
+       mapping = aes(x = cty, y = hwy, color = as.factor(cyl))) +
+  geom_jitter(alpha = 0.4) +
+  geom_smooth(color = "brown",
+              se = FALSE,
+              linewidth = 0.5) +
+  labs(
+    x = "City MPG",
+    y = "Highway MPG",
+    title = "Highway MPG vs. City MPG",
+    color = "N. of cylinders"
+  )+ theme(legend.position="bottom")
+ggMarginal(p,type="histogram",bins=16,fill="lightblue")
+```
+
+Make the size of the plot 10in x 8in
+
+Added `fig.dim=c(10,8)` to change the size of the plot making width 10 and height 8
+```{r scatterplot5, message=FALSE,fig.dim=c(10,8)}
+
+p <- ggplot(data = mpg,
+       mapping = aes(x = cty, y = hwy, color = as.factor(cyl))) +
+  geom_jitter(alpha = 0.4) +
+  geom_smooth(color = "brown",
+              se = FALSE,
+              linewidth = 0.5) +
+  labs(
+    x = "City MPG",
+    y = "Highway MPG",
+    title = "Highway MPG vs. City MPG",
+    color = "N. of cylinders"
+  )+ theme(legend.position="bottom")
+ggMarginal(p,type="histogram",bins=16,fill="lightblue")
+
+```
+

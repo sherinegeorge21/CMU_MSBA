@@ -1,0 +1,124 @@
+---
+title: "Homework4"
+author: "Sherine George"
+date: "`r format(Sys.Date(), '%d %B, %Y')`"
+output: pdf_document
+---
+QQ1.Install (if not available already) and load the httr and jsonlite libraries.
+Copy, paste, and execute the code included in the ip_address2country_code.r file, which you will
+need to use in order to solve this exercise.
+Read the logins.csv dataset, which contains data about the times at which a suspicious user logged in to a given website. The data is already ordered by utc_time, the column indicating the time of each login. Add to the tibble the following three additional columns:
+– last_seen, representing the number of full days that occurred between successive logins; hint: ? lag, and use as.integer to cast the final result to an integer value.
+– is_weekend, representing a logical column (i.e., a column with values TRUE or FALSE) that indicates whether the login occurred on a weekend (i.e., on Saturday or Sunday); hint: ? weekdays.
+– country_code, representing the country from which the connection originated; hint: use the ip_address2country_code function above to determine the country associated with a given IP address.
+
+```{r Chunk 1, include = FALSE}
+library(httr)
+library(jsonlite)
+library(tidyverse)
+library(dplyr)
+```
+
+code included in the ip_address2country_code.r file :
+```{r Chunk 2, Message = FALSE}
+ip_address2country_code <- function(ip_addresses) {
+  ip_api_url <- "http://ip-api.com/batch/"
+  df <- data.frame(query = ip_addresses)
+  request_body <- toJSON(df)
+  response <- POST(url = ip_api_url, body = request_body)
+  response_content <- content(response)
+  country_codes <-
+    sapply(response_content, function(x)
+      ifelse(is.null(x$countryCode), NA_character_, x$countryCode))
+  return(country_codes)
+}
+
+```
+load data set
+```{r Chunk 3, Message = FALSE}
+logins <- read_csv("C:\\Users\\Sherine\\Downloads\\logins.csv")
+```
+
+```{r Question 1, Message = FALSE}
+logins <- logins %>%
+  mutate(
+    last_seen = as.integer(difftime(utc_time, lag(utc_time), units = "days")),
+    is_weekend = ifelse(weekdays(utc_time) %in% c("Saturday", "Sunday"),"TRUE","FALSE"),
+    country_code = sapply(ip_address, ip_address2country_code)
+  )
+logins
+```
+QQ2.Implement a fizzbuzz function that takes a single number as input. If the number is divisible by 3, the function should return the string "fizz". If the number is divisible by 5, the function should return the string "buzz". If the number is divisible by both 3 and 5, the function should return the string "fizzbuzz". In all other cases, the function should return the input number as a string. Prove that your fizzbuzz function works as expected on all integers from 0 to 15 using a for loop. Hint: a number n is divisible by a number m if the remainder of the division of n by m is 0; you can test this using the “modulo operator” (%% in R): for instance, 5 %% 2 produces 1, since the remainder of the division of 5 by 2 is 1, whereas 6 %% 3 produces 0, since the remainder of the division of 6 by 3 is 0
+
+```{r Question2, echo=TRUE}
+fizzbuzz <- function(n) {
+  if (n %% 3 == 0 && n %% 5 == 0) {
+    return("fizzbuzz")
+  } else if (n %% 3 == 0) {
+    return("fizz")
+  } else if (n %% 5 == 0) {
+    return("buzz")
+  } else {
+    return(as.character(n))
+  }
+}
+for (i in 0:15) {
+  print(fizzbuzz(i))
+}
+```
+
+QQ3.Using the map_chr function and the function fizzbuzz that you previously authored, write a new function names fizzbuzz2 that can operate on a vector input i.e., instead of accepting a single number as input it accepts a vector of numbers. Once again, prove that fizzbuzz2 works as expected on using the vector 0:15 as input.
+```{r Question3, echo=TRUE}
+fizzbuzz2 <- function(n) {
+  return(map_chr(n, fizzbuzz))
+}
+result <- fizzbuzz2(0:15)
+result
+```
+
+QQ4.Using what you know about repetition, conditional execution, and functions in R, write a function that calculates the n-th number in the Fibonacci sequence. Your function should be named fibonacci. It should be such that
+– fibonacci(1) = 0 
+– fibonacci(2) = 1 
+– fibonacci(3) = 1 
+– fibonacci(4) = 2 
+– fibonacci(5) = 3 
+– fibonacci(6) = 5 
+– and so on.
+
+```{r Question4, echo=TRUE}
+fibonacci <- function(n) {
+  if (n <= 0) {
+    return("Invalid input. n must be a positive number.")
+  } else if (n == 1) {
+    return(0)
+  } else if (n == 2) {
+    return(1)
+  } else {
+    return(fibonacci(n-1) + fibonacci(n-2))
+  }
+}
+for(n in 1:6) {
+  cat("fibonnaci(",n,")\n", sep="")
+  cat("[1]",fibonacci(n),"\n")
+}
+```
+
+QQ5.Research the Vectorize function (? Vectorize). Use this code to create a “vectorized” version of the fibonacci function that you previously authored:
+fibonacci_vec <- Vectorize(fibonacci)
+Verify that your fibonacci_vec function can now operate on vectors:
+– what is the result of executing fibonacci(1:10)?
+– what is instead the result of executing fibonacci_vec(1:10)?
+Note: in R Markdown, you can specify error = TRUE in a chunk of code e.g.,
+
+```{r, error = TRUE}
+#what is the result of executing fibonacci(1:10)?
+fibonacci_result <- fibonacci(1:10)
+fibonacci_result
+
+#what is instead the result of executing fibonacci_vec(1:10)?
+fibonacci_vec <- Vectorize(fibonacci)
+result_fib_vec <- fibonacci_vec(1:10)
+result_fib_vec
+
+
+```

@@ -1,0 +1,108 @@
+---
+title: "ProginR3"
+author: "Sherine"
+date: '`r Sys.Date()`'
+output: pdf_document
+---
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r, include = FALSE}
+library(tidyverse)
+library(dplyr)
+```
+
+Read the persons.csv, food.csv, drinks.csv, and dinners.csv datasets. Create a new
+version of the dinners tibble (name it dinners_explicit) that includes exactly the following columns:
+
+```{r}
+persons<-read.csv("C:\\Users\\Sherine\\Downloads\\persons.csv")
+
+food<-read.csv("C:\\Users\\Sherine\\Downloads\\food.csv")
+
+drinks<-read.csv("C:\\Users\\Sherine\\Downloads\\drinks.csv")
+```
+Use the dinners_explicit tibble that you just created to now create a summary tibble for
+the 2 most popular drinks and a summary tibble for the 2 most popular foods. Hints: use the head
+or tail functions to select the top or bottom rows of a tibble; check out the drop_na function in the
+dplyr package to remove rows with missing values
+
+```{r}
+dinners<-read.csv("C:\\Users\\Sherine\\Downloads\\dinners.csv")
+dinners_explicit<-dinners %>%
+  left_join( drinks,by=c('drink_id'='item_id')) %>%
+  left_join(food,by=c('food_id'))%>%
+  left_join(persons, by=c('person_id'='id'))%>%
+  select(item_name,price.x ,name,price.y,first_name,last_name,age) %>% 
+  rename("drink" = "item_name",
+         "drink_price" = "price.x",
+         "food" = "name",
+         "food_price" = "price.y")
+dinners_explicit
+
+top2_drinks<-dinners_explicit %>%
+  group_by(drink) %>%
+   drop_na(drink)%>%
+  summarise(Count = n())  %>%
+  arrange(desc(Count))%>%
+   rename("n" = "Count")%>%
+   head(2)
+
+ top2_foods<- dinners_explicit %>%
+   group_by(food) %>%
+   drop_na(food) %>%
+   summarise(Count = n()) %>%
+   arrange(desc(Count))%>%
+   rename("n" = "Count")%>%
+   head(2)
+ 
+ top2_foods
+ 
+ top2_drinks
+```
+Use the summary tibbles for the top 2 drinks and top 2 foods together with the
+dinners_explicit tibble to create a tibble that corresponds to all the rows in the dinners_explicit
+tibble where the food is in the top 2 foods and the drink is not in the top 2 drinks. Only keep rows
+without missing values in your final table.
+```{r}
+final<-dinners_explicit%>%
+   filter(
+     food %in% top2_foods$food,
+     !(drink %in% top2_drinks$drink),
+     !is.na(food) & !is.na(drink)
+   )%>%
+  drop_na()
+final
+```
+Read the singers.csv dataset
+1
+– Change the tibble so that all first and last names are lower cased.
+– Add a column named full_name obtained by concatenating the first and last name with a single
+space between them.
+– Use the day, month, year columns to create a column named date_of_birth that with the date
+of birth of each singer. The type of this column should be Date (i.e., the tibble should indicate
+the type of the column as <date> when you print out the tibble).
+– Calculate their current age in years (if all of them were still alive today). Note that this doesn’t
+have to be an integer value.
+– Filter the tibble so that it only contains the subset of singers whose last name begins with 2
+consecutive consonants.
+
+```{r}
+singers<-read.csv("C:\\Users\\Sherine\\Downloads\\singers.csv")
+
+singers <- singers %>%
+  mutate(first_name = tolower(first_name),
+         last_name = tolower(last_name))%>%
+  mutate(full_name = paste(first_name, last_name, sep = " ")) %>%
+  mutate(date_of_birth = make_date(year, month, day))%>%
+  mutate(age_today = (today() - date_of_birth) / dyears(1))%>%
+  filter(str_detect(last_name,"^[^aeiou]{2}"))
+
+singers
+
+```
+
