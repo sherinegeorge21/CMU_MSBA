@@ -8,6 +8,6 @@ centric courses.
 ## Learning Objectives
 After completing this course, you will be able to:
 
-• Develop prociency in the use of the R and Python programming languages for Data Analytics.
+• Develop proficiency in the use of the R and Python programming languages for Data Analytics.
 • Develop the ability to use the knowledge that you acquired in this course to continue your individual study of R and Python in autonomy.
 • Begin to use the R and Python programming languages for Statistics and Machine Learning.
