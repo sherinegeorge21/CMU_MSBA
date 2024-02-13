@@ -1,0 +1,337 @@
+// --------------------------
+// Section 1
+//-- Question # 1
+//-- --------------------------
+
+{
+    "Numberofshipwrecks" : NumberInt(4)
+}
+
+
+//-- --------------------------
+//-- Question #2
+//-- --------------------------
+
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaeff1f"),
+    "chart" : "US,US,graph,Chart 83484",
+    "depth" : NumberInt(0),
+    "history" : "Loaded with explosives",
+    "watlev" : "always under water/submerged",
+    "coordinates" : [
+        -170.561332,
+        -14.292422
+    ]
+}
+
+//-- --------------------------
+//-- Question #3
+//-- --------------------------
+
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaed99e"),
+    "Wreck Coordinates" : [
+        -152.3902687,
+        57.7811801
+    ],
+    "Wreck Status" : "Wrecks - Visible",
+    "Water Level" : "covers and uncovers"
+}
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaeef13"),
+    "Wreck Coordinates" : [
+        -124.0398019,
+        46.2684722
+    ],
+    "Wreck Status" : "Wrecks - Visible",
+    "Water Level" : "covers and uncovers"
+}
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaef6b7"),
+    "Wreck Coordinates" : [
+        -122.6605897,
+        47.5823989
+    ],
+    "Wreck Status" : "Wrecks - Visible",
+    "Water Level" : "covers and uncovers"
+}
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaef713"),
+    "Wreck Coordinates" : [
+        -122.9303056,
+        47.0873028
+    ],
+    "Wreck Status" : "Wrecks - Visible",
+    "Water Level" : "covers and uncovers"
+}
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaef71b"),
+    "Wreck Coordinates" : [
+        -122.7408169,
+        48.069428
+    ],
+    "Wreck Status" : "Wrecks - Visible",
+    "Water Level" : "covers and uncovers"
+}
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaef71e"),
+    "Wreck Coordinates" : [
+        -122.7442818,
+        48.0695688
+    ],
+    "Wreck Status" : "Wrecks - Visible",
+    "Water Level" : "covers and uncovers"
+}
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaef7d8"),
+    "Wreck Coordinates" : [
+        -156.3332915,
+        57.1876647
+    ],
+    "Wreck Status" : "Wrecks - Visible",
+    "Water Level" : "covers and uncovers"
+}
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaef7f0"),
+    "Wreck Coordinates" : [
+        -159.509554,
+        58.528505
+    ],
+    "Wreck Status" : "Wrecks - Visible",
+    "Water Level" : "covers and uncovers"
+}
+{
+    "_id" : ObjectId("578f6fa3df35c7fbdbaf0365"),
+    "Wreck Coordinates" : [
+        -123.974071,
+        45.7581737
+    ],
+    "Wreck Status" : "Wrecks - Visible",
+    "Water Level" : "covers and uncovers"
+}
+
+//-- --------------------------
+//   Section 2
+//-- Question #4
+//-- --------------------------
+
+{
+    "Matches found" : NumberInt(4)
+}
+
+
+//-- --------------------------
+//-- Question #5
+//-- --------------------------
+{
+    "Listing URL" : "https://www.airbnb.com/rooms/4502957",
+    "Listing name" : "Beautiful Bondi family beach house",
+    "Nightly price" : NumberDecimal("623.00"),
+    "Suburb" : "Bondi Beach",
+    "Airbnb market" : "Sydney"
+}
+{
+    "Listing URL" : "https://www.airbnb.com/rooms/16147619",
+    "Listing name" : "A jewel in Bondi",
+    "Nightly price" : NumberDecimal("500.00"),
+    "Suburb" : "Bondi Beach",
+    "Airbnb market" : "Sydney"
+}
+{
+    "Listing URL" : "https://www.airbnb.com/rooms/10423504",
+    "Listing name" : "Bondi Beach Dreaming 3-Bed House",
+    "Nightly price" : NumberDecimal("399.00"),
+    "Suburb" : "Bondi Beach",
+    "Airbnb market" : "Sydney"
+}
+
+
+//-- --------------------------
+//-- Question #6
+//-- --------------------------
+{
+    "Number Of Listings" : NumberInt(253),
+    "Lowest nightly listing price" : NumberDecimal("25.00"),
+    "Average nightly listing price" : NumberDecimal("212.2964426877470355731225296442688"),
+    "Highest nightly listing price" : NumberDecimal("1500.00"),
+    "Hawaiian Market" : "Oahu"
+}
+{
+    "Number Of Listings" : NumberInt(153),
+    "Lowest nightly listing price" : NumberDecimal("60.00"),
+    "Average nightly listing price" : NumberDecimal("286.5882352941176470588235294117647"),
+    "Highest nightly listing price" : NumberDecimal("2060.00"),
+    "Hawaiian Market" : "Maui"
+}
+{
+    "Number Of Listings" : NumberInt(139),
+    "Lowest nightly listing price" : NumberDecimal("25.00"),
+    "Average nightly listing price" : NumberDecimal("179.4604316546762589928057553956835"),
+    "Highest nightly listing price" : NumberDecimal("3250.00"),
+    "Hawaiian Market" : "The Big Island"
+}
+{
+    "Number Of Listings" : NumberInt(67),
+    "Lowest nightly listing price" : NumberDecimal("61.00"),
+    "Average nightly listing price" : NumberDecimal("288.8208955223880597014925373134328"),
+    "Highest nightly listing price" : NumberDecimal("1000.00"),
+    "Hawaiian Market" : "Kauai"
+}
+
+//-- --------------------------
+//-- Question #7
+//-- --------------------------
+{
+    "Number Of Listings" : NumberInt(8),
+    "City" : "Hong Kong",
+    "Average nightly price" : NumberDecimal("1219.75")
+}
+{
+    "Number Of Listings" : NumberInt(12),
+    "City" : "Istanbul",
+    "Average nightly price" : NumberDecimal("275.00")
+}
+{
+    "Number Of Listings" : NumberInt(14),
+    "City" : "Barcelona",
+    "Average nightly price" : NumberDecimal("97.14")
+}
+{
+    "Number Of Listings" : NumberInt(19),
+    "City" : "Sydney",
+    "Average nightly price" : NumberDecimal("147.11")
+}
+{
+    "Number Of Listings" : NumberInt(36),
+    "City" : "New York",
+    "Average nightly price" : NumberDecimal("142.69")
+}
+{
+    "Number Of Listings" : NumberInt(60),
+    "City" : "Porto",
+    "Average nightly price" : NumberDecimal("59.27")
+}
+
+
+//-- --------------------------
+//   Section 3
+//-- Question #8
+//-- --------------------------
+
+{
+    "Zip" : "89119",
+    "TotalTheaters" : NumberInt(18)
+}
+{
+    "Zip" : "90045",
+    "TotalTheaters" : NumberInt(10)
+}
+{
+    "Zip" : "75261",
+    "TotalTheaters" : NumberInt(8)
+}
+{
+    "Zip" : "11430",
+    "TotalTheaters" : NumberInt(7)
+}
+{
+    "Zip" : "94080",
+    "TotalTheaters" : NumberInt(7)
+}
+{
+    "Zip" : "32827",
+    "TotalTheaters" : NumberInt(7)
+}
+{
+    "Zip" : "77032",
+    "TotalTheaters" : NumberInt(7)
+}
+{
+    "Zip" : "55111",
+    "TotalTheaters" : NumberInt(6)
+}
+{
+    "Zip" : "96819",
+    "TotalTheaters" : NumberInt(6)
+}
+{
+    "Zip" : "30320",
+    "TotalTheaters" : NumberInt(6)
+}
+
+//-- --------------------------
+//-- Question #9
+//-- --------------------------
+{
+    "Director" : "Sang-soo Hong",
+    "TotalFilmsDirected" : NumberInt(10)
+}
+{
+    "Director" : "Martin Scorsese",
+    "TotalFilmsDirected" : NumberInt(10)
+}
+{
+    "Director" : "Robert Rodriguez",
+    "TotalFilmsDirected" : NumberInt(10)
+}
+{
+    "Director" : "Spike Lee",
+    "TotalFilmsDirected" : NumberInt(9)
+}
+{
+    "Director" : "Tim Burton",
+    "TotalFilmsDirected" : NumberInt(7)
+}
+{
+    "Director" : "Susanne Bier",
+    "TotalFilmsDirected" : NumberInt(5)
+}
+{
+    "Director" : "Christopher Nolan",
+    "TotalFilmsDirected" : NumberInt(5)
+}
+{
+    "Director" : "Peter Jackson",
+    "TotalFilmsDirected" : NumberInt(5)
+}
+{
+    "Director" : "Lucy Walker",
+    "TotalFilmsDirected" : NumberInt(5)
+}
+//-- --------------------------
+//-- Question #10
+//-- --------------------------
+
+{
+    "Actor" : "Steve Carell",
+    "NumberOfComediesReleased" : NumberInt(14),
+    "AverageIMDBRating" : 6.678571428571429
+}
+{
+    "Actor" : "Seth Rogen",
+    "NumberOfComediesReleased" : NumberInt(14),
+    "AverageIMDBRating" : 6.6571428571428575
+}
+{
+    "Actor" : "Will Ferrell",
+    "NumberOfComediesReleased" : NumberInt(11),
+    "AverageIMDBRating" : 6.345454545454545
+}
+{
+    "Actor" : "Owen Wilson",
+    "NumberOfComediesReleased" : NumberInt(11),
+    "AverageIMDBRating" : 6.009090909090909
+}
+{
+    "Actor" : "Adam Sandler",
+    "NumberOfComediesReleased" : NumberInt(12),
+    "AverageIMDBRating" : 5.858333333333333
+}
+{
+    "Actor" : "Akshay Kumar",
+    "NumberOfComediesReleased" : NumberInt(14),
+    "AverageIMDBRating" : 5.235714285714286
+}
+
+
+
